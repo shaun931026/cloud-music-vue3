@@ -1,17 +1,29 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    hello
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
+import { defineComponent, onMounted } from 'vue'
+import { homepage } from '@/api'
 
 export default defineComponent({
   name: 'Home',
-  components: {
-    HelloWorld
+  setup() {
+    onMounted(() => {
+      homepage({
+        refresh: true
+      }).then(res => {
+        console.log(res)
+      })
+    })
   }
 })
 </script>
+
+<style lang="less" scoped>
+.home {
+  font-size: 12px;
+}
+</style>

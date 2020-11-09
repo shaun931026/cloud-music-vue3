@@ -8,5 +8,5 @@ interface BaseURLMap {
 export const baseURLMap: BaseURLMap = {
   production: '/',
   development: 'http://localhost:3000',
-  test: 'http://localhost:3001',
+  test: 'http://localhost:3001'
 }

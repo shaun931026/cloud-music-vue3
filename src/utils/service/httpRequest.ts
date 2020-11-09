@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosPromise, Canceler } from "axios"
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosPromise, Canceler } from 'axios'
 import errorHandle from './errorHandle'
 import qs from 'qs'
 
@@ -60,6 +60,7 @@ class HttpRequest implements ClassHttpRequest {
           'Content-Type': 'application/json; charset=utf-8'
         }
       },
+      withCredentials: true,
       timeout: 10 * 1000
     }
   }
@@ -94,7 +95,7 @@ class HttpRequest implements ClassHttpRequest {
 
         // 主要针对用户频繁切换分类、请求下一页的情况，拦截已经发出去的请求
         // isIntercept true: 请求拦截 false: 请求取消
-        if (!isIntercept) {          
+        if (!isIntercept) {
           return
         }
 
@@ -130,7 +131,7 @@ class HttpRequest implements ClassHttpRequest {
       config = this.handleRequestCancel(config)
 
       // 根据后台的要求可以返回格式化的json
-      config.url = `${config.url}?pretty`
+      config.url = `${config.url}`
 
       return config
     }, (error) => {

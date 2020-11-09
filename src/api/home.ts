@@ -1,4 +1,5 @@
 import { FetchConfig } from '@/utils/service/httpRequest'
 import axios from '@/utils/service/axios'
 
-export const getList = (query?: any, config?: FetchConfig) => axios.get('/api/list', query, config)
+export const homepage = (query?: any, config?: FetchConfig) =>
+  axios.get('/homepage/block/page', query, config)
